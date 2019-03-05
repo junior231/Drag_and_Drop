@@ -56,14 +56,18 @@
 
 
 	dropZones.forEach(zone =>{
-		zone.addEventListener("drop", function(e) {
-			e.preventDefault();
-			console.log("you dropped something on me");
-
-			let piece = e.dataTransfer.getData("text/plain");
-			e.target.appendChild(document.querySelector(`#${piece}`));
-		});
-	})
+        zone.addEventListener("drop", function(e) {
+            let zoneContent = zone.innerHTML;
+            if (!zoneContent) {
+                let piece = e.dataTransfer.getData("text/plain");
+                e.target.appendChild(document.querySelector(`#${piece}`));
+                console.log("you dropped something on me");
+            }
+            else {
+                e.preventDefault();
+            }
+        });
+    })
 
 	function resetPuzzlePieces() {
 		// empty the thumbnail container
