@@ -68,6 +68,7 @@
 	function resetPuzzlePieces() {
 		// empty the thumbnail container
 		piecesBoard.innerHTML = "";
+		dropZones.forEach(zone => zone.innerHTML = "");
 		createPuzzlePieces(this.dataset.puzzleref);
 	}
 
