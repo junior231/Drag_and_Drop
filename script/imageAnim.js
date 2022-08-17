@@ -40,7 +40,6 @@
   dropZones.forEach((zone) => {
     zone.addEventListener("dragover", function (e) {
       e.preventDefault();
-      console.log("you dragged over me");
     });
   });
 
@@ -50,7 +49,6 @@
       if (!zoneContent) {
         let piece = e.dataTransfer.getData("text/plain");
         e.target.appendChild(document.querySelector(`#${piece}`));
-        console.log("you dropped something on me");
       } else {
         e.preventDefault();
       }
